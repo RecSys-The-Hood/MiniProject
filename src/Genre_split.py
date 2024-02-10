@@ -1,16 +1,13 @@
 import pandas as pd
 
 # Given dataset
-df = pd.read_csv("../movies.csv")
+df = pd.read_csv("movies.csv")
 
 def row_to_dict(row):
     return row.to_dict()
 
 # Convert each row to a dictionary
 dataset = df.apply(row_to_dict, axis=1).tolist()
-# Print the list of dictionaries
-# for row_dict in dict_list:
-#     print(row_dict)
 
 # Function to split genres
 def split_genres(movie):
@@ -27,7 +24,7 @@ flattened_dataset = [item for sublist in split_dataset for item in sublist]
 for genre in set(movie["Genre"] for movie in flattened_dataset):
     genre_data = [movie for movie in flattened_dataset if movie["Genre"] == genre]
     df = pd.DataFrame(genre_data)
-    filename = f"{genre}.csv"
+    filename = f"src/{genre}.csv"
     df.to_csv(filename, index=False)
 
 print("CSV files written successfully.")
