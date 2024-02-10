@@ -1,5 +1,4 @@
 import pandas as pd
-
 # Given dataset
 df = pd.read_csv("../movies.csv")
 

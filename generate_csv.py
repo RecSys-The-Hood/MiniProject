@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd 
 
 def convertDatToCSV(inputFile,fields,outputFileName):
-    with open(inputFile, 'r') as file:
+    with open(inputFile, 'r',errors="ignore") as file:
         data = file.read()
         data=data.split("\n")
         data=[x.split("::") for x in data]
