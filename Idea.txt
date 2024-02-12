@@ -9,5 +9,8 @@ Idea - 1 - Check the relationship between the zip code and profession with the r
 
 
 
+
+For K-Means and K-modes explore various initializations.
+
 Data - 
 21 occupations, 18 genres
