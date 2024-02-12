@@ -30,6 +30,7 @@ def MergeCSV(movieDf):
     # merge2df.to_csv("Task2.csv")
     return merge2df
 
+
 def row_to_dict(row):
     return row.to_dict()
 
@@ -58,13 +59,66 @@ def generateSplitCSV():
 
     print("CSV files written successfully.")
 
-generateSplitCSV()
 
-dfs=read_csv_files("src/")
-mergedDfs=[]
+def GenresExpandedCSV():
+    df2=pd.read_csv("movies.csv")
+    genres = [
+    "Action",
+    "Adventure",
+    "Animation",
+    "Children's",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Fantasy",
+    "Film-Noir",
+    "Horror",
+    "Musical",
+    "Mystery",
+    "Romance",
+    "Sci-Fi",
+    "Thriller",
+    "War",
+    "Western"
+    ]
+    for genre in genres:
+        df2[genre]=0
 
-for df in dfs:
-    mergedDfs.append(MergeCSV(df))
+    dataset = df2.apply(row_to_dict, axis=1).tolist()
+    for movie in dataset:
+        genres = movie["Genres"].split('|')
+        for genre in genres:
+            movie[genre]=1
 
-combined_df = pd.concat(mergedDfs, axis=0, ignore_index=True)
-combined_df.to_csv("Task2.csv")
+    newMoviedf=pd.DataFrame(dataset)
+    newMoviedf=newMoviedf.drop(columns=['Genres'],axis=1)
+    newMoviedf.to_csv("MoviesExpanded.csv")
+    return newMoviedf
+
+def MergedCSV2(dfMovies):
+    df1=pd.read_csv("ratings.csv")
+    dfusers=pd.read_csv("convertedusers.csv")
+    merged_df = pd.merge(df1, dfMovies, on='MovieID')
+    df=merged_df.drop(columns=["Timestamp"])
+    merge2df=pd.merge(df,dfusers, on="UserID")
+
+    return merge2df
+
+# Method 1
+
+# generateSplitCSV()
+# dfs=read_csv_files("src/")
+# mergedDfs=[]
+
+# for df in dfs:
+#     mergedDfs.append(MergeCSV(df))
+
+# combined_df = pd.concat(mergedDfs, axis=0, ignore_index=True)
+# combined_df.to_csv("Task2.csv")
+
+#Method 2
+
+df=GenresExpandedCSV()
+newDf=MergedCSV2(df)
+newDf.to_csv("Combined.csv")
