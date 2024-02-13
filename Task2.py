@@ -23,7 +23,7 @@ def MergeCSV(movieDf):
 
     df1=pd.read_csv("ratings.csv")
     df2=movieDf
-    dfusers=pd.read_csv("convertedusers.csv")
+    dfusers=pd.read_csv("users.csv")
     merged_df = pd.merge(df1, df2, on='MovieID')
     df=merged_df.drop(columns=["Timestamp"])
     merge2df=pd.merge(df,dfusers, on="UserID")
