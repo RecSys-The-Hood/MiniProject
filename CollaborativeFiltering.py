@@ -10,19 +10,21 @@ class CollaborativeFiltering:
         - data: DataFrame containing user-item ratings
         """
         self.data = data
+        self.train_data = None
+        self.test_data = None
         self.similarity_matrix = None
 
     def calculate_similarity_matrix(self):
         """
         Calculate item-item similarity matrix based on user ratings.
         """
-        # Pivot the data to get a matrix where rows represent users and columns represent items
-        user_item_matrix = self.data.pivot(index='UserID', columns='MovieID', values='Rating').fillna(0)
-        
-        # Calculate cosine similarity between items
-        item_similarity = np.dot(user_item_matrix.T, user_item_matrix) / (np.linalg.norm(user_item_matrix.T, axis=0) * np.linalg.norm(user_item_matrix, axis=1))
-        
-        self.similarity_matrix = pd.DataFrame(item_similarity, index=user_item_matrix.columns, columns=user_item_matrix.columns)
+        user_item_matrix = self.train_data.pivot(index='UserID', columns='MovieID', values='Rating').fillna(0)
+        n_movies = user_item_matrix.shape[1]
+        similarity_matrix = np.zeros((n_movies, n_movies))
+        for i in range(n_movies):
+            for j in range(n_movies):
+                similarity_matrix[i, j] = np.dot(user_item_matrix.iloc[:, i], user_item_matrix.iloc[:, j]) / (np.linalg.norm(user_item_matrix.iloc[:, i]) * np.linalg.norm(user_item_matrix.iloc[:, j]) + 1e-9)
+        self.similarity_matrix = pd.DataFrame(similarity_matrix, index=user_item_matrix.columns, columns=user_item_matrix.columns)
 
     def predict_ratings(self, user_id):
         """
@@ -34,26 +36,49 @@ class CollaborativeFiltering:
         Returns:
         - DataFrame containing predicted ratings for each item
         """
-        # Get ratings of the user for all items
-        user_ratings = self.data[self.data['UserID'] == user_id]
-        
-        # Initialize an empty DataFrame to store predicted ratings
+        user_ratings = self.train_data[self.train_data['UserID'] == user_id]
         predicted_ratings = pd.DataFrame(index=self.similarity_matrix.index, columns=['PredictedRating'])
-        
         for item_id in predicted_ratings.index:
-            # Initialize the numerator and denominator of the prediction formula
             numerator = 0
             denominator = 0
             for _, rating_row in user_ratings.iterrows():
-                # Calculate the weighted sum of ratings for similar items
                 similarity = self.similarity_matrix.loc[item_id, rating_row['MovieID']]
                 numerator += similarity * rating_row['Rating']
                 denominator += similarity
-            
-            # Predict the rating for the item
             predicted_ratings.loc[item_id, 'PredictedRating'] = numerator / (denominator + 1e-9)  # Add a small value to avoid division by zero
-        
         return predicted_ratings
+
+    def train_test_split(self, test_size=0.2):
+        """
+        Split the data into training and test sets.
+        
+        Parameters:
+        - test_size: Fraction of the data to be used for testing
+        """
+        np.random.seed(42)  # for reproducibility
+        mask = np.random.rand(len(self.data)) < 1 - test_size
+        self.train_data = self.data[mask]
+        self.test_data = self.data[~mask]
+
+    def evaluate(self):
+        """
+        Evaluate the Collaborative Filtering model on the test set.
+        
+        Returns:
+        - Mean squared error (MSE) of the predictions
+        """
+        self.calculate_similarity_matrix()
+        mse_sum = 0
+        total_predictions = 0
+        for user_id in self.test_data['UserID'].unique():
+            user_test_ratings = self.test_data[self.test_data['UserID'] == user_id]
+            user_predicted_ratings = self.predict_ratings(user_id)
+            for _, row in user_test_ratings.iterrows():
+                if row['MovieID'] in user_predicted_ratings.index:
+                    total_predictions += 1
+                    mse_sum += (row['Rating'] - user_predicted_ratings.loc[row['MovieID'], 'PredictedRating']) ** 2
+        mse = mse_sum / total_predictions
+        return mse
 
 # Example usage:
 # Assuming 'data' is a pandas DataFrame with user-item ratings
@@ -69,10 +94,9 @@ data = pd.merge(pd.merge(users, ratings), movies)
 # Create CollaborativeFiltering instance
 cf = CollaborativeFiltering(data)
 
-# Calculate item-item similarity matrix
-cf.calculate_similarity_matrix()
+# Split data into train and test sets
+cf.train_test_split(test_size=0.2)
 
-# Predict ratings for a specific user (e.g., UserID 1)
-user_id = 1
-predicted_ratings = cf.predict_ratings(user_id)
-print("Predicted ratings for user", user_id, ":\n", predicted_ratings)
+# Evaluate the model
+mse = cf.evaluate()
+print("Mean Squared Error:", mse)
