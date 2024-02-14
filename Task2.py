@@ -102,7 +102,37 @@ def MergedCSV2(dfMovies):
     merged_df = pd.merge(df1, dfMovies, on='MovieID')
     df=merged_df.drop(columns=["Timestamp"])
     merge2df=pd.merge(df,dfusers, on="UserID")
-
+    genderMapping={
+        'M': 0,
+        'F' : 1
+    }
+    
+    occupationMapping = {
+        "other or not specified": 0,
+        "academic/educator": 1,
+        "artist": 2,
+        "clerical/admin": 3,
+        "college/grad student": 4,
+        "customer service": 5,
+        "doctor/health care": 6,
+        "executive/managerial": 7,
+        "farmer": 8,
+        "homemaker": 9,
+        "K-12 student": 10,
+        "lawyer": 11,
+        "programmer": 12,
+        "retired": 13,
+        "sales/marketing": 14,
+        "scientist": 15,
+        "self-employed": 16,
+        "technician/engineer": 17,
+        "tradesman/craftsman": 18,
+        "unemployed": 19,
+        "writer": 20
+    }
+    
+    merge2df['Occupation']=merge2df['Occupation'].map(occupationMapping)
+    merge2df['Gender']=merge2df['Gender'].map(genderMapping)
     return merge2df
 
 # Method 1
@@ -121,4 +151,4 @@ def MergedCSV2(dfMovies):
 
 df=GenresExpandedCSV()
 newDf=MergedCSV2(df)
-newDf.to_csv("Combined.csv")
+newDf.to_csv("EncodedCombined.csv")
