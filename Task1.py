@@ -30,7 +30,7 @@ def convert(filepath):
     df1['Occupation']=df1['Occupation'].replace(mp)
     df1.to_csv("convertedusers.csv",index=False)
 
-# convert("users.csv")
+convert("users.csv")
 df=pd.read_csv("convertedusers.csv")
 grouped = df.groupby(['Zip-code', 'Occupation']).size().unstack(fill_value=0)
 
