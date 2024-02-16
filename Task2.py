@@ -133,6 +133,8 @@ def MergedCSV2(dfMovies):
     
     merge2df['Occupation']=merge2df['Occupation'].map(occupationMapping)
     merge2df['Gender']=merge2df['Gender'].map(genderMapping)
+    merge2df['UserID']=merge2df['UserID'].astype(np.int64)
+    merge2df['MovieID']=merge2df['MovieID'].astype(np.int64)
     return merge2df
 
 # Method 1
@@ -151,4 +153,4 @@ def MergedCSV2(dfMovies):
 
 df=GenresExpandedCSV()
 newDf=MergedCSV2(df)
-newDf.to_csv("EncodedCombined.csv")
+newDf.to_csv("EncodedCombined1.csv")
