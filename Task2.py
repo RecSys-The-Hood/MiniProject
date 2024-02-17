@@ -86,8 +86,9 @@ def GenresExpandedCSV():
         df2[genre]=0
 
     dataset = df2.apply(row_to_dict, axis=1).tolist()
+    # print(dataset)
     for movie in dataset:
-        genres = movie["Genres"].split('|')
+        genres = movie['Genres'].split('|')
         for genre in genres:
             movie[genre]=1
 
