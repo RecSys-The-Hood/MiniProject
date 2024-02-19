@@ -62,6 +62,7 @@ def generateSplitCSV():
 
 def GenresExpandedCSV():
     df2=pd.read_csv("movies.csv")
+    df2.drop(df2.tail(1).index,inplace=True) # drop last row
     genres = [
     "Action",
     "Adventure",
@@ -154,4 +155,4 @@ def MergedCSV2(dfMovies):
 
 df=GenresExpandedCSV()
 newDf=MergedCSV2(df)
-newDf.to_csv("EncodedCombined1.csv")
+newDf.to_csv("EncodedCombined.csv")
