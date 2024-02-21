@@ -27,10 +27,11 @@ class KModes:
         for i in range(self.k):
             ind = random.randint(0, len(data) - 1) # selection of a data-point index, for the data-point to be a cluster centroid
             while(ind in self.ind_list): # if the data-point chosen randomly, is already a selected cluster centroid 
-                ind = random.randint(0, len(data) - 1)
+                ind = random.randint(0, len(data))
             self.cluster_centroids.append(data[ind]) # updating the list of cluster centroids
-            self.ind_list = [data.index(x) for x in self.cluster_centroids] # updating the list of data-point indices, selected as cluster centroids
-            
+            print(self.cluster_centroids)
+            # self.ind_list = [data.where() for x in self.cluster_centroids] # updating the list of data-point indices, selected as cluster centroids
+            self.ind_list.append(ind)
         # k-Mode Clustering Algorithm ...
         # The loop will assign the cluster or will reassign and store in list "y"
         while(1):
