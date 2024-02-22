@@ -110,7 +110,7 @@ def MergedCSV2(dfMovies):
     }
     
     occupationMapping = {
-        "other or not specified": 0,
+        "other or not specified":int(0),
         "academic/educator": 1,
         "artist": 2,
         "clerical/admin": 3,
@@ -132,11 +132,26 @@ def MergedCSV2(dfMovies):
         "unemployed": 19,
         "writer": 20
     }
-    
+
     merge2df['Occupation']=merge2df['Occupation'].map(occupationMapping)
     merge2df['Gender']=merge2df['Gender'].map(genderMapping)
+
+    merge2df=merge2df.dropna(subset=['Occupation'])
     merge2df['UserID']=merge2df['UserID'].astype(np.int64)
     merge2df['MovieID']=merge2df['MovieID'].astype(np.int64)
+    # data compression
+    intCompress=["Action","Adventure","Animation","Children's","Comedy","Crime","Documentary","Drama","Fantasy","Film-Noir","Horror","Musical","Mystery","Romance","Sci-Fi","Thriller","War","Western","Gender","Age","Rating","Occupation"]
+
+    merge2df["UserID"]=merge2df["UserID"].astype(np.int16)
+    merge2df["MovieID"]=merge2df["MovieID"].astype(np.int16)
+   
+    for col in intCompress:
+        merge2df[col]=merge2df[col].astype(np.int8)
+
+
+    merge2df=merge2df.drop(columns=["Zip-code","Title"],axis=1)
+    print("New")
+    print(merge2df.dtypes)
     return merge2df
 
 # Method 1
@@ -155,4 +170,5 @@ def MergedCSV2(dfMovies):
 
 df=GenresExpandedCSV()
 newDf=MergedCSV2(df)
-newDf.to_csv("EncodedCombined.csv")
+newDf.to_csv("EncodedCombined2.csv",index=False)
+newDf.to_parquet('file.parquet', compression='gzip')  # For Parquet
