@@ -84,3 +84,10 @@ class KModes:
             predicted_clusters.append(nearest_cluster)
 
         return predicted_clusters
+    
+    def get_cost(self, data):
+        total_cost = 0
+        for i in range(len(data)):
+            dis = [self.delta(centroid, data[i]) for centroid in self.cluster_centroids]
+            total_cost += min(dis)
+        return total_cost

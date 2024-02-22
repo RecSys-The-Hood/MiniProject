@@ -116,7 +116,26 @@ class Matrix:
 
         return U_reduced, Sigma_reduced, V_reduced      
 
+    def randomized_svd(self,k):
+        A = self.A
+        m, n = A.shape
+        p = min(3 * k, n)  # Oversampling parameter
 
+        # Generate a random Gaussian matrix
+        Omega = np.random.randn(n, p)
+        Y = np.dot(A, Omega)
+        Q, _ = self.__QRDecompose(Y)
+        B = np.dot(Q.T, A)
+        U_hat, Sigma, V = self.svd(B)
+        U = np.dot(Q, U_hat)
+
+        # Truncate to the top k singular values/vectors
+        U = U[:, 0:k]
+        Sigma = Sigma[0:k,0:k]
+        V = V[:, :k]
+        return U, Sigma, V
+    
+    
 def main():
   
   np.set_printoptions(suppress=True,
@@ -139,6 +158,7 @@ def main():
   A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
   print("\nReduced SVD")
   print(A_prime)
+
 
 
 if __name__ == "__main__":
