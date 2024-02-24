@@ -171,4 +171,4 @@ def MergedCSV2(dfMovies):
 df=GenresExpandedCSV()
 newDf=MergedCSV2(df)
 newDf.to_csv("EncodedCombined2.csv",index=False)
-newDf.to_parquet('file.parquet', compression='gzip')  # For Parquet
+# newDf.to_parquet('file.parquet', compression='gzip')  # For Parquet

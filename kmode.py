@@ -29,7 +29,7 @@ class KModes:
             while(ind in self.ind_list): # if the data-point chosen randomly, is already a selected cluster centroid 
                 ind = random.randint(0, len(data))
             self.cluster_centroids.append(data[ind]) # updating the list of cluster centroids
-            print(self.cluster_centroids)
+            # print(self.cluster_centroids)
             # self.ind_list = [data.where() for x in self.cluster_centroids] # updating the list of data-point indices, selected as cluster centroids
             self.ind_list.append(ind)
         # k-Mode Clustering Algorithm ...
@@ -81,7 +81,7 @@ class KModes:
             nearest_cluster = distances.index(min(distances))
 
             # Predict the cluster
-            predicted_clusters.append(nearest_cluster)
+            predicted_clusters.append((new_customer,nearest_cluster))
 
         return predicted_clusters
     
