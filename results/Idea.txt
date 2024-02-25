@@ -1,0 +1,16 @@
+Idea - 1 - Check the relationship between the zip code and profession with the ratings.
+2 - What are the movies that have never been watched
+3 - Who are the users that have never/not good amount rated.
+4 - Genre based filtering of movies.
+5 - Explain the relation between Genre and other attributes.
+6 - Identify universally good or bad movies to reduce their weights.
+7 - Viewership per movie and the average rating for individual movie
+8 -  
+
+
+
+
+For K-Means and K-modes explore various initializations.
+
+Data - 
+21 occupations, 18 genres
