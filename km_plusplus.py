@@ -25,7 +25,7 @@ class KMeans:
     def fit(self, X):
         self.centroids,clusters = self._perform_k_means_algorithm(X)
         self.cost = self._calculate_cost(self.centroids,clusters)
-        print(self.point_cluster)
+        # print(self.point_cluster)
     
     def _get_initial_centroids(self, X):
         # k = X.shape[0]
@@ -51,8 +51,8 @@ class KMeans:
             centroids.append(tuple(X[np.argmax(dist), :]))
             dist = []
             # plot(data, np.array(centroids))
-        print("the tuples")
-        print(centroids[0])
+        # print("the tuples")
+        # print(centroids[0])
         centroids = list(centroids)
         return np.array(centroids)
 
@@ -61,17 +61,17 @@ class KMeans:
         # print("Centroid")
         # print(centroids)
         distance_matrix = self.distance_measure(X, centroids)
-        print("Distance Matrix")
-        print(distance_matrix)
+        # print("Distance Matrix")
+        # print(distance_matrix)
         closest_cluster_ids = np.argmin(distance_matrix, axis=1)
-        print("closest")
-        print(closest_cluster_ids)
+        # print("closest")
+        # print(closest_cluster_ids)
         for i in range(self.num_clusters):
             clusters[i] = []
 
         for i, cluster_id in enumerate(closest_cluster_ids):
-            print(f"i = {i}")
-            print(f"cluster_id = {cluster_id}")
+            # print(f"i = {i}")
+            # print(f"cluster_id = {cluster_id}")
             clusters[cluster_id].append(X[i])
             self.point_cluster[i] = cluster_id
         return clusters

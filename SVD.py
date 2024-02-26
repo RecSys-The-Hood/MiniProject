@@ -13,11 +13,20 @@ class Matrix:
 
         for j in range(n):
             v = A[:, j]
-            for i in range(j):
-                R[i, j] = np.dot(Q[:, i], A[:, j])
-                v -= R[i, j] * Q[:, i]
+            if j > 0:
+                R[:j, j] = Q[:, :j].T @ A[:, j]  # Matrix multiplication for all previous columns
+                v -= Q[:, :j] @ R[:j, j]         # Subtract projections of previous columns
             R[j, j] = np.linalg.norm(v)
-            Q[:, j] = v / R[j, j]
+            # print(R[j,j])
+            Q[:, j] = v / (R[j, j] + 1e-9)
+
+        # for j in range(n):
+        #     v = A[:, j]
+        #     for i in range(j):
+        #         R[i, j] = np.dot(Q[:, i], A[:, j])
+        #         v -= R[i, j] * Q[:, i]
+        #     R[j, j] = np.linalg.norm(v)
+        #     Q[:, j] = v / (R[j, j] + 1e-9)
 
         if standard:
             for i in range(n):
@@ -45,7 +54,7 @@ class Matrix:
         n = len(A)
         X = np.copy(A)  # or X = my_copy(A), see below
         pq = np.identity(n)
-        max_ct = 10000
+        max_ct = 1000
 
         ct = 0
         while ct < max_ct:
@@ -55,7 +64,7 @@ class Matrix:
             X = np.matmul(R, Q)  # note order
             ct += 1
 
-            if self.__is_upper_tri(X, 1.0e-12) == True:
+            if self.__is_upper_tri(X, 1.0e-9) == True:
                 break
 
         if ct == max_ct:
@@ -71,41 +80,55 @@ class Matrix:
         return (e_vals, e_vecs)
     
     
-    def svd(self):
-
-        A = self.A
+    def svd(self,B=None):
+        if B is None: 
+            A = self.A
+        else :
+            A=B
+        # A=self.A
 
         ATA = np.matmul(np.transpose(A), A)
-        AAT = np.matmul(A, np.transpose(A))
+        # AAT = np.matmul(A, np.transpose(A))
 
         eigenvals1, eigenvecs1 = self.__eigenDecompose(ATA)
-        eigenvals2, eigenvecs2 = self.__eigenDecompose(AAT)
+        eigenvals1[eigenvals1 < 1e-9] = 0
+        # eigenvals2, eigenvecs2 = self.__eigenDecompose(AAT)
+
+        ## need to find way to do only once
 
         m,n = A.shape
 
         diagonal_matrix = np.zeros((m,n))
         z = min(m,n)
 
+        eigenvecs2 = np.zeros((m,m))
+        # print(eigenvecs2)
+
         for i in range(z):
+            # print(eigenvals1[i])
             diagonal_matrix[i][i] = math.sqrt(eigenvals1[i])
 
         for i in range(z):
             Av = np.matmul(A, eigenvecs1[:, i])
-            sigmaU = (-1)*diagonal_matrix[i][i]*eigenvecs2[:, i]
+            u = Av/(diagonal_matrix[i][i]+ 1e-9)
+            # print(u.shape)
+            eigenvecs2[:, i] = u
+
+            # sigmaU = (-1)*diagonal_matrix[i][i]*eigenvecs2[:, i]
             
-            result = all(val < 0 for val in Av * sigmaU)
+            # result = all(val < 0 for val in Av * sigmaU)
             
-            if (result):
-                eigenvecs1[:, i] = (-1)*eigenvecs1[:, i]
+            # if (result):
+            #     eigenvecs1[:, i] = (-1)*eigenvecs1[:, i]
                 
 
         print("\nOutputs\n")
-        # print(eigenvals1)
         print(eigenvecs2)
         print(diagonal_matrix)
         print(eigenvecs1)
 
         return eigenvecs2, diagonal_matrix, eigenvecs1
+
     
     def reduced_svd(self, k):
 
@@ -119,7 +142,7 @@ class Matrix:
     def randomized_svd(self,k):
         A = self.A
         m, n = A.shape
-        p = min(3 * k, n)  # Oversampling parameter
+        p = min(2*k, n)  # Oversampling parameter
 
         # Generate a random Gaussian matrix
         Omega = np.random.randn(n, p)
@@ -137,28 +160,27 @@ class Matrix:
     
     
 def main():
-  
-  np.set_printoptions(suppress=True,
+    np.set_printoptions(suppress=True,
     precision=4, floatmode='fixed')
 
-  A = np.array([[0.9, 0.8, 0.2],[0.3, 0.3, 0.4],[0.3, 0.1, 2]], dtype=np.float64)
+    A = np.array([[0.9, 0.8,0.3],[0.6,0.8,0.7], [0.2 ,0.3 , 0.3],[0.6,0.8,0.7],[0.3, 0.1, 0.3],[0.6,0.8,0.7]], dtype=np.float64)
 
-  print("\nSource matrix: ")
-  print(A)
+    print("\nSource matrix: ")
+    print(A)
 
-  m = Matrix(A)
+    m = Matrix(A)
 
-  U, Sigma, V = m.svd()
-  A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
+    U, Sigma, V = m.svd()
+    A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
 
-  print("\nAfter SVD")
-  print(A_prime)
+    print("\nAfter SVD")
+    print(A_prime)
 
-  U, Sigma, V = m.reduced_svd(2)
-  A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
-  print("\nReduced SVD")
-  print(A_prime)
-
+    
+    U, Sigma, V = m.reduced_svd(2)
+    A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
+    print("\nReduced SVD")
+    print(A_prime)
 
 
 if __name__ == "__main__":
