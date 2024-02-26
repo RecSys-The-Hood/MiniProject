@@ -99,7 +99,7 @@ def GenresExpandedCSV():
     return newMoviedf
 
 def MergedCSV2(dfMovies):
-    df1=pd.read_csv("ratings.csv")
+    df1=pd.read_csv("high_rating_users_ratings.csv")
     dfusers=pd.read_csv("convertedusers.csv")
     merged_df = pd.merge(df1, dfMovies, on='MovieID')
     df=merged_df.drop(columns=["Timestamp"])

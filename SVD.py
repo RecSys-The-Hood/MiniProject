@@ -2,7 +2,7 @@ import numpy as np
 import math
 
 class Matrix:
-    def _init_(self, A):
+    def __init__(self, A):
         self.A = A
 
     def __QRDecompose(self, A, standard=False):
@@ -68,7 +68,6 @@ class Matrix:
             X = np.matmul(R, Q)  # note order
             ct += 1
 
-            if self.__is_upper_tri(X, 1.0e-9) == True:
             if self.__is_upper_tri(X, 1.0e-9) == True:
                 break
 
