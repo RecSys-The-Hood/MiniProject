@@ -1,0 +1,10 @@
+Title : Believers, The (1987) , MovieID : 1332, Genres : Horror|Thriller
+Title : Birds, The (1963) , MovieID : 1333, Genres : Horror
+Title : Blob, The (1958) , MovieID : 1334, Genres : Horror|Sci-Fi
+Title : Blood Beach (1981) , MovieID : 1335, Genres : Action|Horror
+Title : Body Parts (1991) , MovieID : 1336, Genres : Horror
+Title : Body Snatcher, The (1945) , MovieID : 1337, Genres : Horror
+Title : Bram Stoker's Dracula (1992) , MovieID : 1339, Genres : Horror|Romance
+Title : Bride of Frankenstein (1935) , MovieID : 1340, Genres : Horror
+Title : Candyman (1992) , MovieID : 1342, Genres : Horror
+Title : Contender, The (2000) , MovieID : 3952, Genres : Drama|Thriller
