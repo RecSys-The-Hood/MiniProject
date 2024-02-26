@@ -2,7 +2,7 @@ import numpy as np
 import math
 
 class Matrix:
-    def __init__(self, A):
+    def _init_(self, A):
         self.A = A
 
     def __QRDecompose(self, A, standard=False):
@@ -13,6 +13,9 @@ class Matrix:
 
         for j in range(n):
             v = A[:, j]
+            if j > 0:
+                R[:j, j] = Q[:, :j].T @ A[:, j]  # Matrix multiplication for all previous columns
+                v -= Q[:, :j] @ R[:j, j]         # Subtract projections of previous columns
             if j > 0:
                 R[:j, j] = Q[:, :j].T @ A[:, j]  # Matrix multiplication for all previous columns
                 v -= Q[:, :j] @ R[:j, j]         # Subtract projections of previous columns
@@ -55,6 +58,7 @@ class Matrix:
         X = np.copy(A)  # or X = my_copy(A), see below
         pq = np.identity(n)
         max_ct = 1000
+        max_ct = 1000
 
         ct = 0
         while ct < max_ct:
@@ -64,6 +68,7 @@ class Matrix:
             X = np.matmul(R, Q)  # note order
             ct += 1
 
+            if self.__is_upper_tri(X, 1.0e-9) == True:
             if self.__is_upper_tri(X, 1.0e-9) == True:
                 break
 
@@ -86,11 +91,21 @@ class Matrix:
         else :
             A=B
         # A=self.A
+    def svd(self,B=None):
+        if B is None: 
+            A = self.A
+        else :
+            A=B
+        # A=self.A
 
         ATA = np.matmul(np.transpose(A), A)
         # AAT = np.matmul(A, np.transpose(A))
 
         eigenvals1, eigenvecs1 = self.__eigenDecompose(ATA)
+        eigenvals1[eigenvals1 < 1e-9] = 0
+        # eigenvals2, eigenvecs2 = self.__eigenDecompose(AAT)
+
+        ## need to find way to do only once
         eigenvals1[eigenvals1 < 1e-9] = 0
         # eigenvals2, eigenvecs2 = self.__eigenDecompose(AAT)
 
@@ -117,7 +132,10 @@ class Matrix:
             # sigmaU = (-1)*diagonal_matrix[i][i]*eigenvecs2[:, i]
             
             # result = all(val < 0 for val in Av * sigmaU)
+            # result = all(val < 0 for val in Av * sigmaU)
             
+            # if (result):
+            #     eigenvecs1[:, i] = (-1)*eigenvecs1[:, i]
             # if (result):
             #     eigenvecs1[:, i] = (-1)*eigenvecs1[:, i]
                 
@@ -142,6 +160,7 @@ class Matrix:
     def randomized_svd(self,k):
         A = self.A
         m, n = A.shape
+        p = min(2*k, n)  # Oversampling parameter
         p = min(2*k, n)  # Oversampling parameter
 
         # Generate a random Gaussian matrix
@@ -181,6 +200,7 @@ def main():
     A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
     print("\nReduced SVD")
     print(A_prime)
+
 
 
 if __name__ == "__main__":
