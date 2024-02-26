@@ -14,7 +14,7 @@ class KMeans:
         self.centroids = None
         self.point_cluster = {}
         self.cost = 0
-
+        
     def get_cost(self):
         return self.cost
     
@@ -31,7 +31,7 @@ class KMeans:
         sample_points_ids = random.sample(range(0, number_of_samples), self.num_clusters)
         print("sample_points_ids")
         print(sample_points_ids)
-
+        # print(X)
         centroids = [tuple(X[id]) for id in sample_points_ids]
         print("the tuples")
         print(centroids[0])

@@ -2,7 +2,7 @@ import numpy as np
 import math
 
 class Matrix:
-    def _init_(self, A):
+    def __init__(self, A):
         self.A = A
 
     def __QRDecompose(self, A, standard=False):
@@ -17,6 +17,7 @@ class Matrix:
                 R[:j, j] = Q[:, :j].T @ A[:, j]  # Matrix multiplication for all previous columns
                 v -= Q[:, :j] @ R[:j, j]         # Subtract projections of previous columns
             R[j, j] = np.linalg.norm(v)
+            # print(R[j,j])
             Q[:, j] = v / (R[j, j] + 1e-9)
 
         # for j in range(n):
@@ -78,7 +79,7 @@ class Matrix:
         e_vecs = np.copy(pq)
         return (e_vals, e_vecs)
     
-    
+  
     def svd(self,B=None):
         if B is None: 
             A = self.A
@@ -87,7 +88,7 @@ class Matrix:
         # A=self.A
 
         ATA = np.matmul(np.transpose(A), A)
-        AAT = np.matmul(A, np.transpose(A))
+        # AAT = np.matmul(A, np.transpose(A))
 
         eigenvals1, eigenvecs1 = self.__eigenDecompose(ATA)
         eigenvals1[eigenvals1 < 1e-9] = 0
@@ -100,32 +101,37 @@ class Matrix:
         diagonal_matrix = np.zeros((m,n))
         z = min(m,n)
 
-        eigenvecs2 = np.zeros((n,n))
+        eigenvecs2 = np.zeros((m,m))
+        # print(eigenvecs2)
 
         for i in range(z):
-            print(eigenvals1[i])
+            # print(eigenvals1[i])
             diagonal_matrix[i][i] = math.sqrt(eigenvals1[i])
 
         for i in range(z):
             Av = np.matmul(A, eigenvecs1[:, i])
             u = Av/(diagonal_matrix[i][i]+ 1e-9)
+            # print(u.shape)
             eigenvecs2[:, i] = u
 
             # sigmaU = (-1)*diagonal_matrix[i][i]*eigenvecs2[:, i]
             
             # result = all(val < 0 for val in Av * sigmaU)
+            # result = all(val < 0 for val in Av * sigmaU)
             
+            # if (result):
+            #     eigenvecs1[:, i] = (-1)*eigenvecs1[:, i]
             # if (result):
             #     eigenvecs1[:, i] = (-1)*eigenvecs1[:, i]
                 
 
         print("\nOutputs\n")
-        print(eigenvals1)
         print(eigenvecs2)
         print(diagonal_matrix)
         print(eigenvecs1)
 
         return eigenvecs2, diagonal_matrix, eigenvecs1
+
     
     def reduced_svd(self, k):
 
@@ -157,29 +163,29 @@ class Matrix:
     
     
 def main():
-  
-  np.set_printoptions(suppress=True,
+    np.set_printoptions(suppress=True,
     precision=4, floatmode='fixed')
 
-  A = np.array([[0.9, 0.8, 0.2],[0.3, 0.3, 0.4],[0.3, 0.1, 2]], dtype=np.float64)
+    A = np.array([[0.9, 0.8,0.3],[0.6,0.8,0.7], [0.2 ,0.3 , 0.3],[0.6,0.8,0.7],[0.3, 0.1, 0.3],[0.6,0.8,0.7]], dtype=np.float64)
 
-  print("\nSource matrix: ")
-  print(A)
+    print("\nSource matrix: ")
+    print(A)
 
-  m = Matrix(A)
+    m = Matrix(A)
 
-  U, Sigma, V = m.svd()
-  A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
+    U, Sigma, V = m.svd()
+    A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
 
-  print("\nAfter SVD")
-  print(A_prime)
+    print("\nAfter SVD")
+    print(A_prime)
 
-  U, Sigma, V = m.reduced_svd(2)
-  A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
-  print("\nReduced SVD")
-  print(A_prime)
+    
+    U, Sigma, V = m.reduced_svd(2)
+    A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
+    print("\nReduced SVD")
+    print(A_prime)
 
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
