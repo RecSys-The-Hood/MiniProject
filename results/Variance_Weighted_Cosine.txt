@@ -1,0 +1,10 @@
+Title : Bamboozled (2000) , MovieID : 3943, Genres : Comedy
+Title : Bootmen (2000) , MovieID : 3944, Genres : Comedy|Drama
+Title : Digimon: The Movie (2000) , MovieID : 3945, Genres : Adventure|Animation|Children's
+Title : Get Carter (2000) , MovieID : 3946, Genres : Action|Drama|Thriller
+Title : Get Carter (1971) , MovieID : 3947, Genres : Thriller
+Title : Meet the Parents (2000) , MovieID : 3948, Genres : Comedy
+Title : Requiem for a Dream (2000) , MovieID : 3949, Genres : Drama
+Title : Tigerland (2000) , MovieID : 3950, Genres : Drama
+Title : Two Family House (2000) , MovieID : 3951, Genres : Drama
+Title : Contender, The (2000) , MovieID : 3952, Genres : Drama|Thriller
