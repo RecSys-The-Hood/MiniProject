@@ -1,0 +1,10 @@
+Title : Anna (1996) , MovieID : 1316, Genres : Drama
+Title : Soft Toilet Seats (1999) , MovieID : 3290, Genres : Comedy
+Title : Legal Deceit (1997) , MovieID : 1709, Genres : Thriller
+Title : Loves of Carmen, The (1948) , MovieID : 3209, Genres : Drama
+Title : Eden (1997) , MovieID : 1815, Genres : Drama
+Title : Nueba Yol (1995) , MovieID : 133, Genres : Comedy|Drama
+Title : Roula (1995) , MovieID : 642, Genres : Drama
+Title : Silence of the Palace, The (Saimt el Qusur) (1994) , MovieID : 127, Genres : Drama
+Title : Chain of Fools (2000) , MovieID : 3323, Genres : Comedy|Crime
+Title : Song of Freedom (1936) , MovieID : 3382, Genres : Drama
