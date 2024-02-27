@@ -1,0 +1,158 @@
+svd on genres and  users column with nan filled with average rating of genre and k = 75, with user attributes added before svd
+Recommended movies for User 20
+Title : Moll Flanders (1996) , MovieID : 650 , Rating : 5.0 , Genres : Drama
+Title : Bamboozled (2000) , MovieID : 3943 , Rating : 5.0 , Genres : Comedy
+Title : It Happened One Night (1934) , MovieID : 905 , Rating : 5.0 , Genres : Comedy
+Title : Fear of a Black Hat (1993) , MovieID : 449 , Rating : 5.0 , Genres : Comedy
+Title : Big One, The (1997) , MovieID : 1827 , Rating : 5.0 , Genres : Comedy|Documentary
+
+Movies Watched by User : 20
+Title : Seven (Se7en) (1995) , MovieID : 47 , Rating : 5.0 , Genres : Crime|Thriller
+Title : Braveheart (1995) , MovieID : 110 , Rating : 5.0 , Genres : Action|Drama|War
+Title : Fifth Element, The (1997) , MovieID : 1527 , Rating : 5.0 , Genres : Action|Sci-Fi
+Title : L.A. Confidential (1997) , MovieID : 1617 , Rating : 5.0 , Genres : Crime|Film-Noir|Mystery|Thriller
+Title : Out of Sight (1998) , MovieID : 1912 , Rating : 5.0 , Genres : Action|Crime|Romance
+Title : Matrix, The (1999) , MovieID : 2571 , Rating : 5.0 , Genres : Action|Sci-Fi|Thriller
+Title : Gladiator (2000) , MovieID : 3578 , Rating : 5.0 , Genres : Action|Drama
+Title : Patriot, The (2000) , MovieID : 3753 , Rating : 5.0 , Genres : Action|Drama|War
+Title : From Dusk Till Dawn (1996) , MovieID : 70 , Rating : 4.0 , Genres : Action|Comedy|Crime|Horror|Thriller
+Title : Fugitive, The (1993) , MovieID : 457 , Rating : 4.0 , Genres : Action|Thriller
+Title : Terminator 2: Judgment Day (1991) , MovieID : 589 , Rating : 4.0 , Genres : Action|Sci-Fi|Thriller
+Title : Mission: Impossible (1996) , MovieID : 648 , Rating : 4.0 , Genres : Action|Adventure|Mystery
+Title : Terminator, The (1984) , MovieID : 1240 , Rating : 4.0 , Genres : Action|Sci-Fi|Thriller
+Title : Star Trek: The Motion Picture (1979) , MovieID : 1371 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi
+Title : There's Something About Mary (1998) , MovieID : 1923 , Rating : 4.0 , Genres : Comedy
+Title : Saving Private Ryan (1998) , MovieID : 2028 , Rating : 4.0 , Genres : Action|Drama|War
+Title : Superman II (1980) , MovieID : 2641 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi
+Title : American Beauty (1999) , MovieID : 2858 , Rating : 4.0 , Genres : Comedy|Drama
+Title : Predator (1987) , MovieID : 3527 , Rating : 4.0 , Genres : Action|Sci-Fi|Thriller
+
+Recommended movies for User 250
+Title : Somewhere in Time (1980) , MovieID : 1286 , Rating : 5.0 , Genres : Drama|Romance
+Title : Lawn Dogs (1997) , MovieID : 1880 , Rating : 5.0 , Genres : Drama
+Title : Eyes Without a Face (1959) , MovieID : 841 , Rating : 5.0 , Genres : Horror
+Title : Blood For Dracula (Andy Warhol's Dracula) (1974) , MovieID : 1329 , Rating : 5.0 , Genres : Horror
+Title : Bride of Frankenstein (1935) , MovieID : 1340 , Rating : 5.0 , Genres : Horror
+
+Movies Watched by User : 250
+Title : Escape from New York (1981) , MovieID : 1129 , Rating : 5.0 , Genres : Action|Adventure|Sci-Fi|Thriller
+Title : Airplane! (1980) , MovieID : 2791 , Rating : 5.0 , Genres : Comedy
+Title : From Russia with Love (1963) , MovieID : 2948 , Rating : 5.0 , Genres : Action
+Title : Frequency (2000) , MovieID : 3510 , Rating : 5.0 , Genres : Drama|Thriller
+Title : Forrest Gump (1994) , MovieID : 356 , Rating : 4.0 , Genres : Comedy|Romance|War
+Title : Jurassic Park (1993) , MovieID : 480 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi
+Title : Mission: Impossible (1996) , MovieID : 648 , Rating : 4.0 , Genres : Action|Adventure|Mystery
+Title : Alien (1979) , MovieID : 1214 , Rating : 4.0 , Genres : Action|Horror|Sci-Fi|Thriller
+Title : Nikita (La Femme Nikita) (1990) , MovieID : 1249 , Rating : 4.0 , Genres : Thriller
+Title : Donnie Brasco (1997) , MovieID : 1466 , Rating : 4.0 , Genres : Crime|Drama
+Title : Lost World: Jurassic Park, The (1997) , MovieID : 1544 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi|Thriller
+Title : Romeo Must Die (2000) , MovieID : 3452 , Rating : 4.0 , Genres : Action|Romance
+Title : Hard Target (1993) , MovieID : 464 , Rating : 3.0 , Genres : Action|Adventure|Crime|Thriller
+Title : Striptease (1996) , MovieID : 762 , Rating : 3.0 , Genres : Comedy|Crime
+Title : E.T. the Extra-Terrestrial (1982) , MovieID : 1097 , Rating : 3.0 , Genres : Children's|Drama|Fantasy|Sci-Fi
+Title : Friday the 13th Part 3: 3D (1982) , MovieID : 1976 , Rating : 3.0 , Genres : Horror
+Title : Airplane II: The Sequel (1982) , MovieID : 2792 , Rating : 3.0 , Genres : Comedy
+Title : American Beauty (1999) , MovieID : 2858 , Rating : 3.0 , Genres : Comedy|Drama
+
+
+svd on genres and  users column with nan filled with average rating of genre and k = 75
+
+Recommended movies for User 250
+Title : Thin Blue Line, The (1988) , MovieID : 1189 , Rating : 5.0 , Genres : Documentary
+Title : Sandpiper, The (1965) , MovieID : 3073 , Rating : 5.0 , Genres : Drama|Romance
+Title : Star Maker, The (Uomo delle stelle, L') (1995) , MovieID : 124 , Rating : 5.0 , Genres : Drama
+Title : Butterfly (La Lengua de las Mariposas) (2000) , MovieID : 3746 , Rating : 5.0 , Genres : Drama|War
+Title : After Life (1998) , MovieID : 2624 , Rating : 5.0 , Genres : Drama
+
+Movies Watched by User : 250
+Title : Escape from New York (1981) , MovieID : 1129 , Rating : 5.0 , Genres : Action|Adventure|Sci-Fi|Thriller
+Title : Airplane! (1980) , MovieID : 2791 , Rating : 5.0 , Genres : Comedy
+Title : From Russia with Love (1963) , MovieID : 2948 , Rating : 5.0 , Genres : Action
+Title : Frequency (2000) , MovieID : 3510 , Rating : 5.0 , Genres : Drama|Thriller
+Title : Forrest Gump (1994) , MovieID : 356 , Rating : 4.0 , Genres : Comedy|Romance|War
+Title : Jurassic Park (1993) , MovieID : 480 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi
+Title : Mission: Impossible (1996) , MovieID : 648 , Rating : 4.0 , Genres : Action|Adventure|Mystery
+Title : Alien (1979) , MovieID : 1214 , Rating : 4.0 , Genres : Action|Horror|Sci-Fi|Thriller
+Title : Nikita (La Femme Nikita) (1990) , MovieID : 1249 , Rating : 4.0 , Genres : Thriller
+Title : Donnie Brasco (1997) , MovieID : 1466 , Rating : 4.0 , Genres : Crime|Drama
+Title : Lost World: Jurassic Park, The (1997) , MovieID : 1544 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi|Thriller
+Title : Romeo Must Die (2000) , MovieID : 3452 , Rating : 4.0 , Genres : Action|Romance
+Title : Hard Target (1993) , MovieID : 464 , Rating : 3.0 , Genres : Action|Adventure|Crime|Thriller
+Title : Striptease (1996) , MovieID : 762 , Rating : 3.0 , Genres : Comedy|Crime
+Title : E.T. the Extra-Terrestrial (1982) , MovieID : 1097 , Rating : 3.0 , Genres : Children's|Drama|Fantasy|Sci-Fi
+Title : Friday the 13th Part 3: 3D (1982) , MovieID : 1976 , Rating : 3.0 , Genres : Horror
+
+Recommended movies for User 20
+Title : Dead Presidents (1995) , MovieID : 42 , Rating : 5.0 , Genres : Action|Crime|Drama
+Title : Two Girls and a Guy (1997) , MovieID : 1816 , Rating : 5.0 , Genres : Comedy|Drama
+Title : Nobody's Fool (1994) , MovieID : 281 , Rating : 5.0 , Genres : Drama
+Title : King of Masks, The (Bian Lian) (1996) , MovieID : 2609 , Rating : 5.0 , Genres : Drama
+Title : Miller's Crossing (1990) , MovieID : 1245 , Rating : 5.0 , Genres : Drama
+
+Movies Watched by User : 20
+Title : Seven (Se7en) (1995) , MovieID : 47 , Rating : 5.0 , Genres : Crime|Thriller
+Title : Braveheart (1995) , MovieID : 110 , Rating : 5.0 , Genres : Action|Drama|War
+Title : Fifth Element, The (1997) , MovieID : 1527 , Rating : 5.0 , Genres : Action|Sci-Fi
+Title : L.A. Confidential (1997) , MovieID : 1617 , Rating : 5.0 , Genres : Crime|Film-Noir|Mystery|Thriller
+Title : Out of Sight (1998) , MovieID : 1912 , Rating : 5.0 , Genres : Action|Crime|Romance
+Title : Matrix, The (1999) , MovieID : 2571 , Rating : 5.0 , Genres : Action|Sci-Fi|Thriller
+Title : Gladiator (2000) , MovieID : 3578 , Rating : 5.0 , Genres : Action|Drama
+Title : Patriot, The (2000) , MovieID : 3753 , Rating : 5.0 , Genres : Action|Drama|War
+Title : From Dusk Till Dawn (1996) , MovieID : 70 , Rating : 4.0 , Genres : Action|Comedy|Crime|Horror|Thriller
+Title : Fugitive, The (1993) , MovieID : 457 , Rating : 4.0 , Genres : Action|Thriller
+Title : Terminator 2: Judgment Day (1991) , MovieID : 589 , Rating : 4.0 , Genres : Action|Sci-Fi|Thriller
+Title : Mission: Impossible (1996) , MovieID : 648 , Rating : 4.0 , Genres : Act
+
+svd on genres and  users column with nan filled with average rating of genre and k = 75, with user attributes added after svd before kmeans++
+
+Recommended movies for User 100
+Title : Captain Horatio Hornblower (1951) , MovieID : 3406 , Rating : 5.0 , Genres : Action|Adventure|War
+Title : 8 1/2 (1963) , MovieID : 1251 , Rating : 5.0 , Genres : Drama
+Title : 400 Blows, The (Les Quatre cents coups) (1959) , MovieID : 2731 , Rating : 5.0 , Genres : Drama
+Title : Trial, The (Le Procs) (1963) , MovieID : 3416 , Rating : 5.0 , Genres : Drama
+Title : Pawnbroker, The (1965) , MovieID : 3789 , Rating : 5.0 , Genres : Drama
+
+Movies watched by user 100
+Title : Schindler's List (1993) , MovieID : 527 , Rating : 5.0 , Genres : Drama|War
+Title : Lone Star (1996) , MovieID : 800 , Rating : 5.0 , Genres : Drama|Mystery
+Title : Wizard of Oz, The (1939) , MovieID : 919 , Rating : 5.0 , Genres : Adventure|Children's|Drama|Musical
+Title : Get Shorty (1995) , MovieID : 21 , Rating : 4.0 , Genres : Action|Comedy|Drama
+Title : Star Wars: Episode IV - A New Hope (1977) , MovieID : 260 , Rating : 4.0 , Genres : Action|Adventure|Fantasy|Sci-Fi
+Title : Shawshank Redemption, The (1994) , MovieID : 318 , Rating : 4.0 , Genres : Drama
+Title : Star Trek: Generations (1994) , MovieID : 329 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi
+Title : Silence of the Lambs, The (1991) , MovieID : 593 , Rating : 4.0 , Genres : Drama|Thriller
+Title : Godfather, The (1972) , MovieID : 858 , Rating : 4.0 , Genres : Action|Crime|Drama
+Title : 2001: A Space Odyssey (1968) , MovieID : 924 , Rating : 4.0 , Genres : Drama|Mystery|Sci-Fi|Thriller
+Title : African Queen, The (1951) , MovieID : 969 , Rating : 4.0 , Genres : Action|Adventure|Romance|War
+Title : Star Wars: Episode V - The Empire Strikes Back (1980) , MovieID : 1196 , Rating : 4.0 , Genres : Action|Adventure|Drama|Sci-Fi|War
+Title : Princess Bride, The (1987) , MovieID : 1197 , Rating : 4.0 , Genres : Action|Adventure|Comedy|Romance
+Title : Raiders of the Lost Ark (1981) , MovieID : 1198 , Rating : 4.0 , Genres : Action|Adventure
+Title : Star Wars: Episode VI - Return of the Jedi (1983) , MovieID : 1210 , Rating : 4.0 , Genres : Action|Adventure|Romance|Sci-Fi|War
+Title : GoodFellas (1990) , MovieID : 1213 , Rating : 4.0 , Genres : Crime|Drama
+Title : Indiana Jones and the Last Crusade (1989) , MovieID : 1291 , Rating : 4.0 , Genres : Action|Adventure
+Title : Rocky (1976) , MovieID : 1954 , Rating : 4.0 , Genres : Action|Drama
+
+Recommended movies for User 250
+Title : Jungle Fever (1991) , MovieID : 3426 , Rating : 5.0 , Genres : Drama|Romance
+Title : War Room, The (1993) , MovieID : 556 , Rating : 5.0 , Genres : Documentary
+Title : Paradise Lost: The Child Murders at Robin Hood Hills (1996) , MovieID : 1361 , Rating : 5.0 , Genres : Documentary
+Title : Dazed and Confused (1993) , MovieID : 441 , Rating : 5.0 , Genres : Comedy
+Title : Women, The (1939) , MovieID : 927 , Rating : 5.0 , Genres : Comedy
+
+Movies Watched by User : 250
+Title : Escape from New York (1981) , MovieID : 1129 , Rating : 5.0 , Genres : Action|Adventure|Sci-Fi|Thriller
+Title : Airplane! (1980) , MovieID : 2791 , Rating : 5.0 , Genres : Comedy
+Title : From Russia with Love (1963) , MovieID : 2948 , Rating : 5.0 , Genres : Action
+Title : Frequency (2000) , MovieID : 3510 , Rating : 5.0 , Genres : Drama|Thriller
+Title : Forrest Gump (1994) , MovieID : 356 , Rating : 4.0 , Genres : Comedy|Romance|War
+Title : Jurassic Park (1993) , MovieID : 480 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi
+Title : Mission: Impossible (1996) , MovieID : 648 , Rating : 4.0 , Genres : Action|Adventure|Mystery
+Title : Alien (1979) , MovieID : 1214 , Rating : 4.0 , Genres : Action|Horror|Sci-Fi|Thriller
+Title : Nikita (La Femme Nikita) (1990) , MovieID : 1249 , Rating : 4.0 , Genres : Thriller
+Title : Donnie Brasco (1997) , MovieID : 1466 , Rating : 4.0 , Genres : Crime|Drama
+Title : Lost World: Jurassic Park, The (1997) , MovieID : 1544 , Rating : 4.0 , Genres : Action|Adventure|Sci-Fi|Thriller
+Title : Romeo Must Die (2000) , MovieID : 3452 , Rating : 4.0 , Genres : Action|Romance
+Title : Hard Target (1993) , MovieID : 464 , Rating : 3.0 , Genres : Action|Adventure|Crime|Thriller
+Title : Striptease (1996) , MovieID : 762 , Rating : 3.0 , Genres : Comedy|Crime
+Title : E.T. the Extra-Terrestrial (1982) , MovieID : 1097 , Rating : 3.0 , Genres : Children's|Drama|Fantasy|Sci-Fi
+Title : Friday the 13th Part 3: 3D (1982) , MovieID : 1976 , Rating : 3.0 , Genres : Horror

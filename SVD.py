@@ -11,22 +11,24 @@ class Matrix:
         Q = np.zeros((m, n))
         R = np.zeros((n, n))
 
+    
+        # for j in range(n):
+        #     v = np.copy(A[:, j])
+        #     if j > 0:
+        #         R[:j, j] = v.T @ Q[:,:j]  # Matrix multiplication for all previous columns
+        #         v -= Q[:, :j] @ R[:j, j]         # Subtract projections of previous columns
+               
+        #     R[j, j] = np.linalg.norm(v)
+        #     # print(R[j,j])
+        #     Q[:, j] = v / (R[j, j] + 1e-9)
+
         for j in range(n):
             v = A[:, j]
-            if j > 0:
-                R[:j, j] = Q[:, :j].T @ A[:, j]  # Matrix multiplication for all previous columns
-                v -= Q[:, :j] @ R[:j, j]         # Subtract projections of previous columns
+            for i in range(j):
+                R[i, j] = np.dot(Q[:, i], A[:, j])
+                v -= R[i, j] * Q[:, i]
             R[j, j] = np.linalg.norm(v)
-            # print(R[j,j])
             Q[:, j] = v / (R[j, j] + 1e-9)
-
-        # for j in range(n):
-        #     v = A[:, j]
-        #     for i in range(j):
-        #         R[i, j] = np.dot(Q[:, i], A[:, j])
-        #         v -= R[i, j] * Q[:, i]
-        #     R[j, j] = np.linalg.norm(v)
-        #     Q[:, j] = v / (R[j, j] + 1e-9)
 
         if standard:
             for i in range(n):
@@ -54,7 +56,7 @@ class Matrix:
         n = len(A)
         X = np.copy(A)  # or X = my_copy(A), see below
         pq = np.identity(n)
-        max_ct = 1000
+        max_ct =1000
 
         ct = 0
         while ct < max_ct:
@@ -63,8 +65,14 @@ class Matrix:
             pq = np.matmul(pq, Q)  # accum Q
             X = np.matmul(R, Q)  # note order
             ct += 1
+            # print("This is X")
+            # print(X)
 
             if self.__is_upper_tri(X, 1.0e-9) == True:
+                # print("It broke")
+                # print(X)
+                # print(Q)
+                # print(R)
                 break
 
         if ct == max_ct:
@@ -166,7 +174,7 @@ def main():
     np.set_printoptions(suppress=True,
     precision=4, floatmode='fixed')
 
-    A = np.array([[0.9, 0.8,0.3],[0.6,0.8,0.7], [0.2 ,0.3 , 0.3],[0.6,0.8,0.7],[0.3, 0.1, 0.3],[0.6,0.8,0.7]], dtype=np.float64)
+    A = np.array([[0.9, 0.8,0.3,0.6,0.8,0.7], [0.2 ,0.3,0.3,0.6,0.8,0.7],[0.3, 0.1, 0.3,0.6,0.8,0.7]], dtype=np.float64)
 
     print("\nSource matrix: ")
     print(A)
@@ -184,7 +192,6 @@ def main():
     A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
     print("\nReduced SVD")
     print(A_prime)
-
 
 
 if __name__ == "__main__":
