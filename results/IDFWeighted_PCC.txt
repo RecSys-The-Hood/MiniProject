@@ -1,10 +1,10 @@
-Title : Believers, The (1987) , MovieID : 1332, Genres : Horror|Thriller
-Title : Birds, The (1963) , MovieID : 1333, Genres : Horror
-Title : Blob, The (1958) , MovieID : 1334, Genres : Horror|Sci-Fi
-Title : Blood Beach (1981) , MovieID : 1335, Genres : Action|Horror
-Title : Body Parts (1991) , MovieID : 1336, Genres : Horror
-Title : Body Snatcher, The (1945) , MovieID : 1337, Genres : Horror
-Title : Bram Stoker's Dracula (1992) , MovieID : 1339, Genres : Horror|Romance
-Title : Bride of Frankenstein (1935) , MovieID : 1340, Genres : Horror
-Title : Candyman (1992) , MovieID : 1342, Genres : Horror
-Title : Contender, The (2000) , MovieID : 3952, Genres : Drama|Thriller
+Title : Even Dwarfs Started Small (Auch Zwerge haben klein angefangen) (1971) , MovieID : 3202, Genres : Drama
+Title : Identification of a Woman (Identificazione di una donna) (1982) , MovieID : 1360, Genres : Drama
+Title : Trois (2000) , MovieID : 3291, Genres : Thriller
+Title : Low Life, The (1994) , MovieID : 730, Genres : Drama
+Title : Foreign Student (1994) , MovieID : 572, Genres : Drama
+Title : Zachariah (1971) , MovieID : 3236, Genres : Western
+Title : Wirey Spindell (1999) , MovieID : 3228, Genres : Comedy
+Title : Crude Oasis, The (1995) , MovieID : 821, Genres : Romance
+Title : Little Indian, Big City (Un indien dans la ville) (1994) , MovieID : 641, Genres : Comedy
+Title : Loves of Carmen, The (1948) , MovieID : 3209, Genres : Drama
