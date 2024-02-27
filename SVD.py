@@ -5,7 +5,7 @@ class Matrix:
     def __init__(self, A):
         self.A = A
 
-    def __QRDecompose(self, A, standard=False):
+    def __QRDecompose(self, A, standard=False,flg = True):
         
         m, n = A.shape  
         Q = np.zeros((m, n))
@@ -50,7 +50,7 @@ class Matrix:
     def eigenDecomposeSelf(self):
         return self.__eigenDecompose(self.A)
     
-    def __eigenDecompose(self, A):
+    def __eigenDecompose(self, A,flg):
         # A is a square, symmetric matrix
 
         n = len(A)
@@ -61,7 +61,9 @@ class Matrix:
         ct = 0
         while ct < max_ct:
             
-            Q, R = self.__QRDecompose(X)
+            Q, R = self.__QRDecompose(X,flg)
+            print("Count")
+            print(ct)
             pq = np.matmul(pq, Q)  # accum Q
             X = np.matmul(R, Q)  # note order
             ct += 1
@@ -85,10 +87,13 @@ class Matrix:
 
         # eigenvectors are columns of pq
         e_vecs = np.copy(pq)
+        print("These are evecs")
+        print(e_vecs)
+        print(e_vals)
         return (e_vals, e_vecs)
     
   
-    def svd(self,B=None):
+    def svd(self,B=None,flg = True):
         if B is None: 
             A = self.A
         else :
@@ -97,9 +102,12 @@ class Matrix:
 
         ATA = np.matmul(np.transpose(A), A)
         # AAT = np.matmul(A, np.transpose(A))
-
-        eigenvals1, eigenvecs1 = self.__eigenDecompose(ATA)
+        print("ATA")
+        print(ATA)
+        eigenvals1, eigenvecs1 = self.__eigenDecompose(ATA,flg)
         eigenvals1[eigenvals1 < 1e-9] = 0
+        print("Eigenvals")
+        print(eigenvals1)
         # eigenvals2, eigenvecs2 = self.__eigenDecompose(AAT)
 
         ## need to find way to do only once
@@ -134,9 +142,9 @@ class Matrix:
                 
 
         print("\nOutputs\n")
-        print(eigenvecs2)
-        print(diagonal_matrix)
-        print(eigenvecs1)
+        # print(eigenvecs2)
+        # print(diagonal_matrix)
+        # print(eigenvecs1)
 
         return eigenvecs2, diagonal_matrix, eigenvecs1
 

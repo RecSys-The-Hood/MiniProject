@@ -1,0 +1,10 @@
+Title : Leather Jacket Love Story (1997) , MovieID : 1851, Genres : Drama|Romance
+Title : Gate of Heavenly Peace, The (1995) , MovieID : 787, Genres : Documentary
+Title : Hour of the Pig, The (1993) , MovieID : 578, Genres : Drama|Mystery
+Title : Jar, The (Khomreh) (1992) , MovieID : 758, Genres : Drama
+Title : I Am Cuba (Soy Cuba/Ya Kuba) (1964) , MovieID : 3245, Genres : Drama
+Title : Follow the Bitch (1998) , MovieID : 1830, Genres : Comedy
+Title : Schlafes Bruder (Brother of Sleep) (1995) , MovieID : 989, Genres : Drama
+Title : Foreign Student (1994) , MovieID : 572, Genres : Drama
+Title : Mamma Roma (1962) , MovieID : 557, Genres : Drama
+Title : Song of Freedom (1936) , MovieID : 3382, Genres : Drama

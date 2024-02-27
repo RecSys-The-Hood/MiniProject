@@ -58,7 +58,7 @@ class KModes:
             for label in range(self.k):
                 data_filter = [data[i] for i in range(len(data)) if self.y[i] == label] # filtering data-points that are assigned a particular cluster label
                 # data filter has the list of rows which belong to the given label/node
-                modes = np.apply_along_axis(lambda x: np.bincount(x).argmax(), axis=0, arr=data_filter)
+                modes = np.apply_along_axis(lambda x: np.bincount(x.astype(int)).argmax(), axis=0, arr=data_filter)
                 self.cluster_centroids[label]=modes.tolist()
                 # cluster_centroids[label] = list(stats.mode(data_filter, axis = 0)[0][0]) # cluster updation by taking mode
                 # above line will update the label based on mode

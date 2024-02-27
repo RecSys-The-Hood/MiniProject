@@ -14,7 +14,7 @@ class KMeans:
         self.centroids = None
         self.point_cluster = {}
         self.cost = 0
-
+        
     def get_cost(self):
         return self.cost
     
