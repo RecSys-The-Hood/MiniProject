@@ -5,28 +5,28 @@ class Matrix:
     def __init__(self, A):
         self.A = A
 
-    def __QRDecompose(self, A, standard=False):
+    def __QRDecompose(self, A, standard=False,flg = True):
         
         m, n = A.shape  
         Q = np.zeros((m, n))
         R = np.zeros((n, n))
-
-        for j in range(n):
-            v = A[:, j]
-            if j > 0:
-                R[:j, j] = Q[:, :j].T @ A[:, j]  # Matrix multiplication for all previous columns
-                v -= Q[:, :j] @ R[:j, j]         # Subtract projections of previous columns
-            R[j, j] = np.linalg.norm(v)
-            # print(R[j,j])
-            Q[:, j] = v / (R[j, j] + 1e-9)
-
-        # for j in range(n):
-        #     v = A[:, j]
-        #     for i in range(j):
-        #         R[i, j] = np.dot(Q[:, i], A[:, j])
-        #         v -= R[i, j] * Q[:, i]
-        #     R[j, j] = np.linalg.norm(v)
-        #     Q[:, j] = v / (R[j, j] + 1e-9)
+        if flg:
+            for j in range(n):
+                v = A[:, j]
+                if j > 0:
+                    R[:j, j] = Q[:, :j].T @ A[:, j]  # Matrix multiplication for all previous columns
+                    v -= Q[:, :j] @ R[:j, j]         # Subtract projections of previous columns
+                R[j, j] = np.linalg.norm(v)
+                # print(R[j,j])
+                Q[:, j] = v / (R[j, j] + 1e-9)
+        else:
+            for j in range(n):
+                v = A[:, j]
+                for i in range(j):
+                    R[i, j] = np.dot(Q[:, i], A[:, j])
+                    v -= R[i, j] * Q[:, i]
+                R[j, j] = np.linalg.norm(v)
+                Q[:, j] = v / (R[j, j] + 1e-9)
 
         if standard:
             for i in range(n):
@@ -48,7 +48,7 @@ class Matrix:
     def eigenDecomposeSelf(self):
         return self.__eigenDecompose(self.A)
     
-    def __eigenDecompose(self, A):
+    def __eigenDecompose(self, A,flg):
         # A is a square, symmetric matrix
 
         n = len(A)
@@ -59,12 +59,23 @@ class Matrix:
         ct = 0
         while ct < max_ct:
             
-            Q, R = self.__QRDecompose(X)
+            Q, R = self.__QRDecompose(X,flg)
+            print("Count")
+            print(ct)
             pq = np.matmul(pq, Q)  # accum Q
             X = np.matmul(R, Q)  # note order
             ct += 1
 
-            if self.__is_upper_tri(X, 1.0e-9) == True:
+            if self.__is_upper_tri(X, 1.0e-8) == True:
+                print("pq")
+                print(pq)
+                print("R")
+                print(R)
+                print("Q")
+                print(Q)
+                print("X")
+                print(X)
+                print("Broke")
                 break
 
         if ct == max_ct:
@@ -77,10 +88,13 @@ class Matrix:
 
         # eigenvectors are columns of pq
         e_vecs = np.copy(pq)
+        print("These are evecs")
+        print(e_vecs)
+        print(e_vals)
         return (e_vals, e_vecs)
     
   
-    def svd(self,B=None):
+    def svd(self,B=None,flg = True):
         if B is None: 
             A = self.A
         else :
@@ -89,9 +103,12 @@ class Matrix:
 
         ATA = np.matmul(np.transpose(A), A)
         # AAT = np.matmul(A, np.transpose(A))
-
-        eigenvals1, eigenvecs1 = self.__eigenDecompose(ATA)
+        print("ATA")
+        print(ATA)
+        eigenvals1, eigenvecs1 = self.__eigenDecompose(ATA,flg)
         eigenvals1[eigenvals1 < 1e-9] = 0
+        print("Eigenvals")
+        print(eigenvals1)
         # eigenvals2, eigenvecs2 = self.__eigenDecompose(AAT)
 
         ## need to find way to do only once
@@ -126,9 +143,9 @@ class Matrix:
                 
 
         print("\nOutputs\n")
-        print(eigenvecs2)
-        print(diagonal_matrix)
-        print(eigenvecs1)
+        # print(eigenvecs2)
+        # print(diagonal_matrix)
+        # print(eigenvecs1)
 
         return eigenvecs2, diagonal_matrix, eigenvecs1
 
