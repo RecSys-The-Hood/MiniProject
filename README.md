@@ -37,7 +37,7 @@ Following this, you should first run some files to get the data required.
 6. km_plusplus.py contains the code for the KMeans++ algorithm, km.py contains the code for the normal KMeans algorithm, kmode.py contains the code for the KModes algorithm, while SVD.py contains the code for the svd implementation. We have implemented normal and reduced svd.
 
 7. These codes are imported by the following files, and hence have been separated into separate modules to allow for reuse.
-    1. KModes_SVD.ipynb - contains the code for KModes Algorithm followed by SVD. KModes is run on the entire ratings matrix to get clusters. We then select the cluster which the target user belongs, and run SVD on it. We then pick out the 5 movies with the highest rating for the given user, and display them.
+    1. KModes_SVD.ipynb - contains the code for KModes Algorithm followed by SVD. KModes is run on the entire ratings matrix to get clusters. We then select the cluster which the target user belongs, and run SVD on it. We then pick out the 5 movies with the highest rating for the given user (this rating is obtained from svd), and display them.
     2. SVD_Kmeans_updated.ipynb - contains the code for SVD applied on the user-genre average rating matrix, to get the user representations, and then apply KMeans to cluster users.
     3. SVD_KMeans++Entire.ipynb - contains the same approach, but this time using the KMeans++ algorithm.
 
