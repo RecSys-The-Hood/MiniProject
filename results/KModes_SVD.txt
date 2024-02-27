@@ -1,0 +1,6 @@
+Recommended movies for User  1
+Title : Seven Samurai (The Magnificent Seven) (Shichinin no samurai) (1954) , MovieID : 2019 , Rating : 4.606315789499392 , Genres : Action|Drama
+Title : Godfather, The (1972) , MovieID : 858 , Rating : 4.595789473801125 , Genres : Action|Crime|Drama
+Title : Silence of the Lambs, The (1991) , MovieID : 593 , Rating : 4.589473684995558 , Genres : Drama|Thriller
+Title : Shawshank Redemption, The (1994) , MovieID : 318 , Rating : 4.586842105157931 , Genres : Drama
+Title : Usual Suspects, The (1995) , MovieID : 50 , Rating : 4.570526315819115 , Genres : Crime|Thriller
