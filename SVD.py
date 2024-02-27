@@ -62,19 +62,14 @@ class Matrix:
         while ct < max_ct:
             
             Q, R = self.__QRDecompose(X,flg)
-            print("Count")
-            print(ct)
+           
             pq = np.matmul(pq, Q)  # accum Q
             X = np.matmul(R, Q)  # note order
             ct += 1
-            # print("This is X")
-            # print(X)
+            
 
             if self.__is_upper_tri(X, 1.0e-9) == True:
-                # print("It broke")
-                # print(X)
-                # print(Q)
-                # print(R)
+                
                 break
 
         if ct == max_ct:
@@ -102,12 +97,12 @@ class Matrix:
 
         ATA = np.matmul(np.transpose(A), A)
         # AAT = np.matmul(A, np.transpose(A))
-        print("ATA")
-        print(ATA)
+        # print("ATA")
+        # print(ATA)
         eigenvals1, eigenvecs1 = self.__eigenDecompose(ATA,flg)
         eigenvals1[eigenvals1 < 1e-9] = 0
-        print("Eigenvals")
-        print(eigenvals1)
+        # print("Eigenvals")
+        # print(eigenvals1)
         # eigenvals2, eigenvecs2 = self.__eigenDecompose(AAT)
 
         ## need to find way to do only once
@@ -141,7 +136,7 @@ class Matrix:
             #     eigenvecs1[:, i] = (-1)*eigenvecs1[:, i]
                 
 
-        print("\nOutputs\n")
+        # print("\nOutputs\n")
         # print(eigenvecs2)
         # print(diagonal_matrix)
         # print(eigenvecs1)
@@ -182,7 +177,7 @@ def main():
     np.set_printoptions(suppress=True,
     precision=4, floatmode='fixed')
 
-    A = np.array([[0.9, 0.8,0.3,0.6,0.8,0.7], [0.2 ,0.3,0.3,0.6,0.8,0.7],[0.3, 0.1, 0.3,0.6,0.8,0.7]], dtype=np.float64)
+    A = np.array([[0.9, 0.8,0.3],[0.6,0.8,0.7], [0.2 ,0.3,0.3],[0.6,0.8,0.7],[0.3, 0.1, 0.3],[0.6,0.8,0.7]], dtype=np.float64)
 
     print("\nSource matrix: ")
     print(A)
@@ -196,7 +191,7 @@ def main():
     print(A_prime)
 
     
-    U, Sigma, V = m.reduced_svd(2)
+    U, Sigma, V = m.randomized_svd(2)
     A_prime = np.matmul(U, np.matmul(Sigma, np.transpose(V)))
     print("\nReduced SVD")
     print(A_prime)

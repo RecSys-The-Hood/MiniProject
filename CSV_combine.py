@@ -200,6 +200,7 @@ def convert(filepath):
 
 #Method 2
 
+convert("users.csv")
 df=GenresExpandedCSV()
 newDf=MergedCSV2(df)
 newDf.to_csv("EncodedCombined2.csv",index=False)
