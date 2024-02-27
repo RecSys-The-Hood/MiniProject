@@ -18,7 +18,7 @@ You should first install numpy and pandas in your system. You can refer to the f
 Following this, you should first run some files to get the data required. 
 
 1. First run the Generate_csv.py file. This will convert the dat files to generate 3 csv files - movies.csv, users.csv, ratings.csv.
-2. Then run the CSV_combine.py file. This will give us the EncodedCombined2.csv file, along with other files which will be required for EDA.
+2. Then run the CSV_combine.py and the CSV_combine_cf.py file. This will give us the EncodedCombined2.csv and the EncodedCombined1.csv files, along with other files which will be required for EDA.
 
 ## File Structure
 
