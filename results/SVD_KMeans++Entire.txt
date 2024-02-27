@@ -156,3 +156,72 @@ Title : Hard Target (1993) , MovieID : 464 , Rating : 3.0 , Genres : Action|Adve
 Title : Striptease (1996) , MovieID : 762 , Rating : 3.0 , Genres : Comedy|Crime
 Title : E.T. the Extra-Terrestrial (1982) , MovieID : 1097 , Rating : 3.0 , Genres : Children's|Drama|Fantasy|Sci-Fi
 Title : Friday the 13th Part 3: 3D (1982) , MovieID : 1976 , Rating : 3.0 , Genres : Horror
+
+
+svd on genres and  users column with nan filled with average rating of genre and k = 40, with user attributes added after svd before kmeans++
+
+
+Recommended movies for User 7000
+Title : Vie est belle, La (Life is Rosey) (1987) , MovieID : 771 , Rating : 5.0 , Genres : Comedy|Drama
+Title : Nightwatch (1997) , MovieID : 1355 , Rating : 5.0 , Genres : Horror|Thriller
+Title : Man Who Knew Too Much, The (1956) , MovieID : 2183 , Rating : 5.0 , Genres : Thriller
+Title : Conversation, The (1974) , MovieID : 3730 , Rating : 5.0 , Genres : Drama|Mystery
+Title : Roman Holiday (1953) , MovieID : 916 , Rating : 5.0 , Genres : Comedy|Romance
+
+Movies Watched by User : 7000
+Title : Big Green, The (1995) , MovieID : 54 , Rating : 5.0 , Genres : Children's|Comedy
+Title : Last Detail, The (1973) , MovieID : 3200 , Rating : 5.0 , Genres : Comedy|Drama
+Title : Leaving Las Vegas (1995) , MovieID : 25 , Rating : 4.0 , Genres : Drama|Romance
+Title : Aliens (1986) , MovieID : 1200 , Rating : 4.0 , Genres : Action|Sci-Fi|Thriller|War
+Title : Bio-Dome (1996) , MovieID : 65 , Rating : 3.0 , Genres : Comedy
+Title : Heidi Fleiss: Hollywood Madam (1995) , MovieID : 99 , Rating : 2.0 , Genres : Documentary
+Title : Free Willy (1993) , MovieID : 455 , Rating : 2.0 , Genres : Adventure|Children's|Drama
+Title : Men Cry Bullets (1997) , MovieID : 2980 , Rating : 1.0 , Genres : Drama
+
+checking results of svd kmeans ++ with k=40 and a new user who has rated movies everyone rated poorly as poorly
+Recommended movies for User 7000
+Title : Vie est belle, La (Life is Rosey) (1987) , MovieID : 771 , Rating : 5.0 , Genres : Comedy|Drama
+Title : All About Eve (1950) , MovieID : 926 , Rating : 5.0 , Genres : Drama
+Title : Coldblooded (1995) , MovieID : 394 , Rating : 5.0 , Genres : Action
+Title : Network (1976) , MovieID : 3504 , Rating : 5.0 , Genres : Comedy|Drama
+Title : Three Colors: White (1994) , MovieID : 308 , Rating : 5.0 , Genres : Drama
+
+Movies Watched by User : 7000
+Title : Something to Sing About (1937) , MovieID : 975 , Rating : 2.0 , Genres : Comedy|Musical
+Title : Get Over It (1996) , MovieID : 1142 , Rating : 2.0 , Genres : Drama
+Title : Cheetah (1989) , MovieID : 2039 , Rating : 2.0 , Genres : Adventure|Children's
+Title : Hatchet For the Honeymoon (Rosso Segno Della Follia) (1969) , MovieID : 3772 , Rating : 2.0 , Genres : Horror
+Title : Terror in a Texas Town (1958) , MovieID : 1386 , Rating : 1.0 , Genres : Western
+Title : Intimate Relations (1996) , MovieID : 1528 , Rating : 1.0 , Genres : Comedy
+Title : Elstree Calling (1930) , MovieID : 2217 , Rating : 1.0 , Genres : Comedy|Musical
+Title : Torso (Corpi Presentano Tracce di Violenza Carnale) (1973) , MovieID : 3493 , Rating : 1.0 , Genres : Horror
+Title : Uninvited Guest, An (2000) , MovieID : 3904 , Rating : 1.0 , Genres : Drama
+
+checking results of svd kmeans++ with k=40 and a new user who has rated movies everyone rated highly as poorly
+
+Recommended movies for User 7000
+Title : Baby, The (1973) , MovieID : 3280 , Rating : 5.0 , Genres : Horror
+Title : Burnt By the Sun (Utomlyonnye solntsem) (1994) , MovieID : 213 , Rating : 5.0 , Genres : Drama
+Title : Once Upon a Time in America (1984) , MovieID : 1227 , Rating : 5.0 , Genres : Crime|Drama|Thriller
+Title : Ponette (1996) , MovieID : 1545 , Rating : 5.0 , Genres : Drama
+Title : Celebration, The (Festen) (1998) , MovieID : 2360 , Rating : 5.0 , Genres : Drama
+Title : Asphalt Jungle, The (1950) , MovieID : 3364 , Rating : 5.0 , Genres : Crime|Film-Noir
+
+Movies Watched by User : 7000
+Title : Gate of Heavenly Peace, The (1995) , MovieID : 787 , Rating : 2.0 , Genres : Documentary
+Title : I Am Cuba (Soy Cuba/Ya Kuba) (1964) , MovieID : 3245 , Rating : 2.0 , Genres : Drama
+Title : Baby, The (1973) , MovieID : 3280 , Rating : 2.0 , Genres : Horror
+Title : Lamerica (1994) , MovieID : 53 , Rating : 1.0 , Genres : Drama
+Title : Institute Benjamenta, or This Dream People Call Human Life (1995) , MovieID : 729 , Rating : 1.0 , Genres : Drama
+Title : Follow the Bitch (1998) , MovieID : 1830 , Rating : 1.0 , Genres : Comedy
+Title : One Little Indian (1973) , MovieID : 3607 , Rating : 1.0 , Genres : Comedy|Drama|Western
+Title : Bittersweet Motel (2000) , MovieID : 3881 , Rating : 1.0 , Genres : Documentary
+
+checking results of svd kmeans++ with k=40 for a new user who has rated movies everyone rated highly as poorly by filling matrix with average rating of user
+
+Recommended movies for User 7000
+Title : Vie est belle, La (Life is Rosey) (1987) , MovieID : 771 , Rating : 5.0 , Genres : Comedy|Drama
+Title : Nightwatch (1997) , MovieID : 1355 , Rating : 5.0 , Genres : Horror|Thriller
+Title : Man Who Knew Too Much, The (1956) , MovieID : 2183 , Rating : 5.0 , Genres : Thriller
+Title : Conversation, The (1974) , MovieID : 3730 , Rating : 5.0 , Genres : Drama|Mystery
+Title : Roman Holiday (1953) , MovieID : 916 , Rating : 5.0 , Genres : Comedy|Romance
