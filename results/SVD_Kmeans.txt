@@ -1,0 +1,17 @@
+Recommended movies for User 7000
+Title : Shall We Dance? (Shall We Dansu?) (1996) , MovieID : 1537 , Rating : 5.0 , Genres : Comedy
+Title : Run Lola Run (Lola rennt) (1998) , MovieID : 2692 , Rating : 5.0 , Genres : Action|Crime|Romance
+Title : King of Masks, The (Bian Lian) (1996) , MovieID : 2609 , Rating : 5.0 , Genres : Drama
+Title : Three Colors: White (1994) , MovieID : 308 , Rating : 5.0 , Genres : Drama
+Title : Patton (1970) , MovieID : 1272 , Rating : 5.0 , Genres : Drama|War
+
+
+Movies Watched by User : 7000
+Title : Big Green, The (1995) , MovieID : 54 , Rating : 5.0 , Genres : Children's|Comedy
+Title : Last Detail, The (1973) , MovieID : 3200 , Rating : 5.0 , Genres : Comedy|Drama
+Title : Leaving Las Vegas (1995) , MovieID : 25 , Rating : 4.0 , Genres : Drama|Romance
+Title : Aliens (1986) , MovieID : 1200 , Rating : 4.0 , Genres : Action|Sci-Fi|Thriller|War
+Title : Bio-Dome (1996) , MovieID : 65 , Rating : 3.0 , Genres : Comedy
+Title : Heidi Fleiss: Hollywood Madam (1995) , MovieID : 99 , Rating : 2.0 , Genres : Documentary
+Title : Free Willy (1993) , MovieID : 455 , Rating : 2.0 , Genres : Adventure|Children's|Drama
+Title : Men Cry Bullets (1997) , MovieID : 2980 , Rating : 1.0 , Genres : Drama
